@@ -1,4 +1,4 @@
-name: "dspg-website-template"
+name: "dspg23_broadband_website"
 output_dir: "../../docs"
 exclude: ["*.nb.html", "*.csv", "*.CSV", "*.dcf", "parlog", "old", "dashboard"]
 output:
@@ -27,4 +27,4 @@ navbar:
     - text: ""
       icon: fa-github
       # Change to your github repo
-      href: "https://github.com/DSPG-Young-Scholars-Program/dspg23_website_template"
+      href: "https://github.com/DSPG-Young-Scholars-Program/dspg23_broadband_website"
