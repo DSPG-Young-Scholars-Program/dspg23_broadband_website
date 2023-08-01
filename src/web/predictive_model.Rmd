@@ -1,7 +1,9 @@
 ---
-title: "Project Title"
-subtitle: "Methods"
+title: "Impact of Rural Broadband Development Programs"
+subtitle: "Analysis - Predictive Model"
 ---
 
+![regression](img/regression.png)
 
- 
+
+![regression documentation](img/regression_legend.png)
