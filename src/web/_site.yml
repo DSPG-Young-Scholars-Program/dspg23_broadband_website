@@ -16,7 +16,7 @@ navbar:
       menu:
       - text: "Geocoding"
         href: geocoding.html
-      - text: "web-scrapping"
+      - text: "Web-Scrapping"
         href: webscrapping.html
     - text: "Analysis"
       menu:
