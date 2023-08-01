@@ -11,9 +11,8 @@
 
 
 
-<title>Project Title</title>
+<title>Impact of Rural Broadband Development Programs</title>
 
-<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -32,8 +31,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -144,15 +143,11 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -181,8 +176,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -190,9 +185,16 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
+  content: "&#xe258;";
   border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -251,32 +253,50 @@ $(document).ready(function () {
         <li>
   <a href="index.html">Overview</a>
 </li>
-<li>
-  <a href="data.html">Data</a>
-</li>
-<li>
-  <a href="methods.html">Methods</a>
-</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Findings
+    Data Processing
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="findings-overview.html">Overview</a>
+      <a href="geocoding.html">Geocoding</a>
     </li>
     <li>
-      <a href="findings-rmd.html">Findings Rmd</a>
+      <a href="webscrapping.html">web-scrapping</a>
     </li>
   </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Analysis
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ookla_kernel.html">Ookla Kernel</a>
+    </li>
+    <li>
+      <a href="predictive_model.html">Predictive Model</a>
+    </li>
+    <li>
+      <a href="did.html">Difference-in-Difference</a>
+    </li>
+    <li>
+      <a href="findings.html">Findings</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="next_step.html">Next Step</a>
 </li>
 <li>
   <a href="team.html">Team</a>
 </li>
 <li>
-  <a href="https://github.com/DSPG-Young-Scholars-Program/dspg23_website_template">
+  <a href="https://github.com/DSPG-Young-Scholars-Program/dspg23_broadband_website">
     <span class="fa fa-github"></span>
      
     
@@ -291,20 +311,32 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Project Title</h1>
-<h3 class="subtitle">Page//Other Subtitle//Blank</h3>
+<h1 class="title toc-ignore">Impact of Rural Broadband Development Programs</h1>
+<h3 class="subtitle">Overview of the Project</h3>
 
 </div>
 
 
-<div id="project-summary" class="section level1">
-<h1>Project Summary</h1>
+<div id="usda-reconnect" class="section level1">
+<h1>USDA ReConnect</h1>
+<p><a href="https://www.usda.gov/reconnect">The Rural Development Broadband ReConnect Program</a> furnishes loans and grants to provide funds for the costs of construction, improvement, or acquisition of facilities and equipment needed to provide broadband service in eligible rural areas. To qualify to the ReConnect program funds, the propsed funded service area (PFSA) must meet three conditions:</p>
+<ol style="list-style-type: decimal">
+<li>At least 50% of households in PFSA must lack sufficient access to broadband service, which is defined as at least 100 Mbps downstreamand 20 Mbps upstream in the Funding Opportunity Announcement (FOA) published on August 4, 2022.</li>
+<li>The proposed network must be capable of providing broadband service to every premises located in the PFSA at the speed defined by FOA.</li>
+<li>The PFSA must be in a rural area. The area must not in located in a city, town, or incorporated area with a population greater than 20,000 inhabitants or an urbanized area contiguous and adjacent to a city that has more than 50,000 inhabitants.</li>
+</ol>
+<p>The evaluation of applications also prioritizes the economic needs and social vulnerability of the communities. The exact criteria can be viewed on <a href="https://www.usda.gov/reconnect/evaluation-criteria">USDA website</a>.</p>
+<div class="figure">
+<img src="img/reconnect_map.png" alt="Map of approved ReConnect projects. Source: USDA" />
+<p class="caption">Map of approved ReConnect projects. Source: USDA</p>
+</div>
+<p>To date (August 1, 2023), USDA has funded three rounds of ReConnect program, with the fourth round on-going. From FY2019 to 2023, a total of 316 projects are approved and $3.86 billion are invested across the nation to provide affordable broadband connections for rural communities.</p>
 </div>
 <div id="project-goals" class="section level1">
 <h1>Project Goals</h1>
-</div>
-<div id="summary-of-findings" class="section level1">
-<h1>Summary of Findings</h1>
+<p>Broadband investment is a high priority for the Administration and Congress, and over 3 billion dollars have been invested in the ReConnect program. Yet, little research has investigated the program's effect on broadband adoption and rural prosperity. We would like to harness the power of data science to provide insights on this effect.</p>
+<p>Our data sources include the BlackKnight property data, the ReConnect subscription data, the Ookla speed test data, and the broadband deployment data from the Federal Conmission of Communication (FCC). During the DSPG program, we cleaned the datasets, linked them by street address, and performed a difference-in-difference (DID) analysis to isolate the effect of ReConnect.</p>
+<p>With the example of one ReConnect project in Iowa, we created a workflow to examine its effectiveness that can be easily reproduced for other ReConnect projects across the country.</p>
 </div>
 
 <hr />

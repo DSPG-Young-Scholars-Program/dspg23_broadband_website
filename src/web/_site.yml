@@ -12,16 +12,24 @@ navbar:
   right:
     - text: "Overview"
       href: index.html
-    - text: "Data"
-      href: data.html
-    - text: "Methods"
-      href: methods.html
-    - text: "Findings"
+    - text: "Data Processing"
       menu:
-        - text: Overview
-          href: findings-overview.html
-        - text: Findings Rmd
-          href: findings-rmd.html
+      - text: "Geocoding"
+        href: geocoding.html
+      - text: "web-scrapping"
+        href: webscrapping.html
+    - text: "Analysis"
+      menu:
+      - text: "Ookla Kernel"
+        href: ookla_kernel.html
+      - text: "Predictive Model"
+        href: predictive_model.html
+      - text: "Difference-in-Difference"
+        href: did.html
+      - text: "Findings"
+        href: findings.html
+    - text: "Next Step"
+      href: next_step.html
     - text: "Team"
       href: team.html
     - text: ""
