@@ -19,6 +19,8 @@ We implemented a Gaussian kernel on the properties in the Iowa project and its s
 
 ![Map of smoothed Ookla results for the Iowa project](img/ookla_fitted.png)
 
+# Cross Validation
 
+In the Gaussian kernel function, there is a parameter that need to be manually tuned, which is $\phi$. This is analoguous to the $\sigma$ in a normal distribution function. To choose the best value of this parameter for the kernel smoothing function, we ran a 5-fold cross validation on the Ookla dataset in 2021. We randomly divided the dataset into five subsets. Each subset was used as a validation set while the rest four were combined into a training set. We chose the parameter that minimized the average Root Mean Squared Error(RMSE). In the graph above, we fitted the kernel with $\phi$ being 1,000 meters.
 
 
