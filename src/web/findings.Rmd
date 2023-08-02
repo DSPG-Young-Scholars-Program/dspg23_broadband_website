@@ -1,7 +1,8 @@
 ---
-title: "Project Title"
-subtitle: "Methods"
+title: "Impact of Rural Broadband Development Programs"
+subtitle: "Analysis - Findings"
 ---
+# Difference-in-difference Regression Results
 
-
+![DID Regression Result](img/didreg.png)
  

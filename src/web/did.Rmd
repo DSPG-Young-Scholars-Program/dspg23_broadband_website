@@ -9,7 +9,7 @@ Moreover, since the project area is located in a rural area, we need to ensure t
 
 To ensure enough similarity between the control group and the treatment group, we define a buffer zone as any area within 20 miles of the project area. Then we overlay it with the census tract map and filtered out the tracts that have a [Rural-Urban Commuting Area (RUCA)](https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes/) code below 7, i.e., we will only keep the tracts in the buffer zone that are either a small town or completely rural.
 
-![subscribers and buffer zone properties of the sample project](img/iabufferzone.png)
+![Subscribers and buffer zone properties of the sample project](img/bufferzone.png)
 
 # Matching Sample
 
@@ -17,7 +17,7 @@ As previously explained, we want to ensure the inclusion of property characteris
 
 Note that in this particular project, a state border lies in the middle of the project area. Though we can match some of the subscribers in the upper state to records in the BlackKnight dataset, we are lacking any information on property characteristics on all these properties in the BlackKnight data set. Thus, they are removed from the treatment group, and one of our next steps is to use web scraping to try looking for these missing entries.
 
-![subscribers after linking to property data](img/subscriber_linked_bk.png)
+![Subscribers after linking to property data](img/subscriber_linked_bk.png)
 
 Then, the remaining 189 subscribers are used as our treatment group. We want to select a control group of the same size and similar characteristics from the rural buffer zone. By treating their property characteristics as vectors, we can choose the matched counterpart for each subscriber in the control group that minimizes the [Mahalanobis distance](https://en.wikipedia.org/wiki/Mahalanobis_distance). We did so through the R package [*Matching*](https://cran.r-project.org/web/packages/Matching/index.html). The included household characteristics are
 
@@ -28,4 +28,4 @@ Then, the remaining 189 subscribers are used as our treatment group. We want to 
 * assessed value in 2021.
 
 We plot the matched sample below, together with the fitted Ookla data (see Analysis Ookla Kernel tab).
-![subscribers and matched bufferzone properties in the sample project](img/ookla_fitted.png)
+![Subscribers and matched bufferzone properties in the sample project](img/ookla_fitted.png)

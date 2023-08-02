@@ -11,7 +11,7 @@ We used [Black Knight (BK) dataset](https://www.blackknightinc.com/products/prop
 
 We inspected the partition of the data that is close enough to the list of projects that we selected as examples for analysis. In this raw partition of 516,273 records, we summarize our finding in the workflow figure below.
 
-![Inspection workflow of geocoding in BK data](img/bk_geocode_inspection.png)
+![Inspection workflow of geocoding in BlackKnight data](img/bk_geocode_inspection.png)
 
 We developed programs to call three free geocoding APIs, and tested their performance on a random sample of 1000 addresses, then cross-referenced with the lat-long in BK data. The APIs tested are the [Bing Map API](https://www.microsoft.com/en-us/maps/choose-your-bing-maps-api), the [Census geocoder](https://geocoding.geo.census.gov/geocoder/), and the [OpenStreetMap API](https://wiki.openstreetmap.org/wiki/API_v0.6). The Bing Map API is accessed under a free educational key, and to ensure accuracy, we only accepted Bing's geocoding result that they mark as of *high confidence*.
 
