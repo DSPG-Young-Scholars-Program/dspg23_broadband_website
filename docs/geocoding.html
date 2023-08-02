@@ -13,6 +13,7 @@
 
 <title>Impact of Rural Broadband Development Programs</title>
 
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -308,7 +309,8 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Impact of Rural Broadband Development Programs</h1>
+<h1 class="title toc-ignore">Impact of Rural Broadband Development
+Programs</h1>
 <h3 class="subtitle">Data Processing - Geocoding</h3>
 
 </div>
@@ -316,16 +318,39 @@ $(document).ready(function () {
 
 <div id="problem" class="section level1">
 <h1>Problem</h1>
-<p>We used <a href="https://www.blackknightinc.com/products/property-data/">Black Knight (BK) dataset</a> as a reference for property information. An accurate geographic location for each of these properties is important for our selection of bufferzone and accurate calculation from the Ookla kernel (see methodology section). However, during exploratory analysis, we found inconsistency between the latitude-longitude information and the street address in the dataset.</p>
+<p>We used <a
+href="https://www.blackknightinc.com/products/property-data/">Black
+Knight (BK) dataset</a> as a reference for property information. An
+accurate geographic location for each of these properties is important
+for our selection of bufferzone and accurate calculation from the Ookla
+kernel (see methodology section). However, during exploratory analysis,
+we found inconsistency between the latitude-longitude information and
+the street address in the dataset.</p>
 </div>
 <div id="geocoding-scheme" class="section level1">
 <h1>Geocoding Scheme</h1>
-<p>We inspected the partition of the data that is close enough to the list of projects that we selected as examples for analysis. In this raw partition of 516,273 records, we summarize our finding in the workflow figure below.</p>
-<div class="figure">
-<img src="img/bk_geocode_inspection.png" alt="Inspection workflow of geocoding in BK data" />
-<p class="caption">Inspection workflow of geocoding in BK data</p>
+<p>We inspected the partition of the data that is close enough to the
+list of projects that we selected as examples for analysis. In this raw
+partition of 516,273 records, we summarize our finding in the workflow
+figure below.</p>
+<div class="float">
+<img src="img/bk_geocode_inspection.png"
+alt="Inspection workflow of geocoding in BK data" />
+<div class="figcaption">Inspection workflow of geocoding in BK
+data</div>
 </div>
-<p>We developed programs to call three free geocoding APIs, and tested their performance on a random sample of 1000 addresses, then cross-referenced with the lat-long in BK data. The APIs tested are the <a href="https://www.microsoft.com/en-us/maps/choose-your-bing-maps-api">Bing Map API</a>, the <a href="https://geocoding.geo.census.gov/geocoder/">Census geocoder</a>, and the <a href="https://wiki.openstreetmap.org/wiki/API_v0.6">OpenStreetMap API</a>. The Bing Map API is accessed under a free educational key, and to ensure accuracy, we only accepted Bing's geocoding result that they mark as of <em>high confidence</em>.</p>
+<p>We developed programs to call three free geocoding APIs, and tested
+their performance on a random sample of 1000 addresses, then
+cross-referenced with the lat-long in BK data. The APIs tested are the
+<a
+href="https://www.microsoft.com/en-us/maps/choose-your-bing-maps-api">Bing
+Map API</a>, the <a
+href="https://geocoding.geo.census.gov/geocoder/">Census geocoder</a>,
+and the <a
+href="https://wiki.openstreetmap.org/wiki/API_v0.6">OpenStreetMap
+API</a>. The Bing Map API is accessed under a free educational key, and
+to ensure accuracy, we only accepted Bing’s geocoding result that they
+mark as of <em>high confidence</em>.</p>
 <table>
 <thead>
 <tr class="header">
@@ -362,7 +387,10 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
-<p>We found the Census API to be the most suitable for large-scale implementation on the entire BlackKnight dataset, and the Bing Map API to be the most powerful one that can potentially be used to fix the addresses that the Census API fails to geocode.</p>
+<p>We found the Census API to be the most suitable for large-scale
+implementation on the entire BlackKnight dataset, and the Bing Map API
+to be the most powerful one that can potentially be used to fix the
+addresses that the Census API fails to geocode.</p>
 </div>
 
 <hr />
