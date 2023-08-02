@@ -31,8 +31,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -143,11 +143,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -176,8 +180,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -185,16 +189,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -322,9 +319,9 @@ $(document).ready(function () {
 <p><a href="https://www.blackknightinc.com/products/property-data/">The Black Knight property dataset</a> provides information on each property's assessed value, number of bedrooms and bathrooms, building area, age of property, and etc. These variables help us gauge the household characteristics of the subscribers and, in the difference-in-difference analysis, these will serve as control variabls that make sure our control group is similar to the subscribers.</p>
 <p>Any systematic bias or vacancy in this data is thus particularly worrisome. Though we expected a certain percentage of missing records, it was to our surprise that in our North Dakota sampled data, all properties saw their number of bedrooms, bathrooms, and square footage missing.</p>
 </div>
-<div id="webscrapping-solution" class="section level1">
-<h1>Webscrapping solution</h1>
-<p>To facillitate the analysis for our North Dakota project (Project ID: <em>ND1702-A59</em>), we experimented using webscrapping to find the missing information using search engines. Our script can be described as performing the following checklist: for each address,</p>
+<div id="web-scraping-solution" class="section level1">
+<h1>Web scraping solution</h1>
+<p>To facillitate the analysis for our projects, we experimented using web scraping to find the missing information using search engines. Our script can be described as performing the following checklist: for each address,</p>
 <ol style="list-style-type: decimal">
 <li>Send a HTTP request to web-search the address witth Bing</li>
 <li>Scan through the searched result and identify those from selected sources</li>

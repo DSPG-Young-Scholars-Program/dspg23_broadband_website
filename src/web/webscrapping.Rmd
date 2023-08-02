@@ -9,9 +9,9 @@ subtitle: "Data Processing - Webscrapping"
 
 Any systematic bias or vacancy in this data is thus particularly worrisome. Though we expected a certain percentage of missing records, it was to our surprise that in our North Dakota sampled data, all properties saw their number of bedrooms, bathrooms, and square footage missing.
 
-# Webscrapping solution
+# Web scraping solution
 
-To facillitate the analysis for our North Dakota project (Project ID: *ND1702-A59*), we experimented using webscrapping to find the missing information using search engines. Our script can be described as performing the following checklist: for each address, 
+To facillitate the analysis for our projects, we experimented using web scraping to find the missing information using search engines. Our script can be described as performing the following checklist: for each address, 
 
 1. Send a HTTP request to web-search the address witth Bing
 2. Scan through the searched result and identify those from selected sources

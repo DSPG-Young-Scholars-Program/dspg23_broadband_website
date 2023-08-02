@@ -5,9 +5,9 @@ subtitle: "Analysis - Ookla Kernel"
 
 # Ookla data overview
 
-[Ookla](https://www.speedtest.net/) provides world-wide internet speed testing services, and record the geographic location and date of each speed test performed. For privacy concerns, we only accessed the aggregated data, in the form of the average download speed by all tests performed within a 600-by-6000-meter tile. A visualized example of the Iowa project (Project ID: *IA1701-A61*) is included below.
+[Ookla](https://www.speedtest.net/) provides world-wide internet speed testing services, and record the geographic location and date of each speed test performed. For privacy concerns, we only accessed the aggregated data, in the form of the average download speed by all tests performed within a 600-by-600-meter tile. A visualized example is included below.
 
-![Map of raw Ookla data near the Iowa project](img/ookla_raw.png)
+![Map of raw Ookla data near the sample project area](img/ookla_raw.png)
 
 Since the ReConnect project aims to serve rural communities, and rural areas tend to have low population density, our speed testing data record in the areas of interest are sparse. Thus, many properties we selected do not fall exactly in a tile with Ookla data. We thus need to estimate the distribution of internet speed, based on these discrete tiles.
 
@@ -15,9 +15,9 @@ Since the ReConnect project aims to serve rural communities, and rural areas ten
 
 A [kernel](https://en.wikipedia.org/wiki/Kernel_(statistics)) function is a function of distance from the point to be estimated and the existing data points. For each property whose Ookla test speed needs to be estimated, we can use the kernel function to generate weights for each Ookla data point, and the estimated value will be the weighted mean of all entries in the Ookla dataset. With a Gaussian kernel, as a data point becomes farther, its weight decreases exponentially. 
 
-We implemented a Gaussian kernel on the properties in the Iowa project and its surrounding buffer zones with the 2019 and 2021 Ookla data. We plot the results below.
+We implemented a Gaussian kernel on the properties in the sample project and its surrounding buffer zone with the 2019 and 2021 Ookla data. We plot the results below.
 
-![Map of smoothed Ookla results for the Iowa project](img/ookla_fitted.png)
+![Map of smoothed Ookla results for the sample project](img/ookla_fitted.png)
 
 # Cross Validation
 
