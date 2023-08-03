@@ -13,6 +13,7 @@
 
 <title>Impact of Rural Broadband Development Programs</title>
 
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -287,9 +288,6 @@ $(document).ready(function () {
   </ul>
 </li>
 <li>
-  <a href="next_step.html">Next Step</a>
-</li>
-<li>
   <a href="team.html">Team</a>
 </li>
 <li>
@@ -308,7 +306,8 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Impact of Rural Broadband Development Programs</h1>
+<h1 class="title toc-ignore">Impact of Rural Broadband Development
+Programs</h1>
 <h3 class="subtitle">Analysis - Findings</h3>
 
 </div>
@@ -316,12 +315,20 @@ $(document).ready(function () {
 
 <div id="did-regression" class="section level1">
 <h1>DID Regression</h1>
-<p>The predictive model was fitted on the treatment group and the matching control group before and after the project completion. We then applied difference-in-difference regression on the predicted internet speed to test if the average difference is statistically significant. <span class="math display">\[
-PredictedSpeed_{h,t} = \alpha + \beta treatment_h + \gamma year_t + \delta_{DD}treatment_h * year_t + e_{h,t}
-\]</span> The results indicate that there is a significant improvement in predicted internet speed in the project area compared with the matching control group after the project completion.</p>
-<div class="figure">
-<img src="img/didreg.png" alt="DID Regression Result" style="width:50.0%" />
-<p class="caption">DID Regression Result</p>
+<p>The predictive model was fitted on the treatment group and the
+matching control group before and after the project completion. We then
+applied difference-in-difference regression on the predicted internet
+speed to test if the average difference is statistically significant.
+<span class="math display">\[
+PredictedSpeed_{h,t} = \alpha + \beta treatment_h + \gamma year_t +
+\delta_{DD}treatment_h * year_t + e_{h,t}
+\]</span> The results indicate that there is a significant improvement
+in predicted internet speed in the project area compared with the
+matching control group after the project completion.</p>
+<div class="float">
+<img src="img/didreg.png" style="width:50.0%"
+alt="DID Regression Result" />
+<div class="figcaption">DID Regression Result</div>
 </div>
 </div>
 

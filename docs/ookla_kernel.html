@@ -13,6 +13,7 @@
 
 <title>Impact of Rural Broadband Development Programs</title>
 
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -287,9 +288,6 @@ $(document).ready(function () {
   </ul>
 </li>
 <li>
-  <a href="next_step.html">Next Step</a>
-</li>
-<li>
   <a href="team.html">Team</a>
 </li>
 <li>
@@ -308,7 +306,8 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Impact of Rural Broadband Development Programs</h1>
+<h1 class="title toc-ignore">Impact of Rural Broadband Development
+Programs</h1>
 <h3 class="subtitle">Analysis - Ookla Kernel</h3>
 
 </div>
@@ -316,28 +315,67 @@ $(document).ready(function () {
 
 <div id="ookla-data-overview" class="section level1">
 <h1>Ookla data overview</h1>
-<p><a href="https://www.speedtest.net/">Ookla</a> provides world-wide internet speed testing services, and record the geographic location and date of each speed test performed. For privacy concerns, we only accessed the aggregated data, in the form of the average download speed by all tests performed within a 600-by-600-meter tile. A visualized example is included below.</p>
-<div class="figure">
-<img src="img/ookla_raw.png" alt="Map of raw Ookla data near the sample project area" />
-<p class="caption">Map of raw Ookla data near the sample project area</p>
+<p><a href="https://www.speedtest.net/">Ookla</a> provides world-wide
+internet speed testing services, and record the geographic location and
+date of each speed test performed. For privacy concerns, we only
+accessed the aggregated data, in the form of the average download speed
+by all tests performed within a 600-by-600-meter tile. A visualized
+example is included below.</p>
+<div class="float">
+<img src="img/ookla_raw.png"
+alt="Map of raw Ookla data near the sample project area" />
+<div class="figcaption">Map of raw Ookla data near the sample project
+area</div>
 </div>
-<p>Since the ReConnect project aims to serve rural communities, and rural areas tend to have low population density, our speed testing data record in the areas of interest are sparse. Thus, many properties we selected do not fall exactly in a tile with Ookla data. We thus need to estimate the distribution of internet speed, based on these discrete tiles.</p>
+<p>Since the ReConnect project aims to serve rural communities, and
+rural areas tend to have low population density, our speed testing data
+record in the areas of interest are sparse. Thus, many properties we
+selected do not fall exactly in a tile with Ookla data. We thus need to
+estimate the distribution of internet speed, based on these discrete
+tiles.</p>
 </div>
 <div id="kernel-smoothing" class="section level1">
 <h1>Kernel Smoothing</h1>
-<p>A <a href="https://en.wikipedia.org/wiki/Kernel_(statistics)">kernel</a> function is a function of distance from the point to be estimated and the existing data points. For each property whose Ookla test speed needs to be estimated, we can use the kernel function to generate weights for each Ookla data point, and the estimated value will be the weighted mean of all entries in the Ookla dataset. With a Gaussian kernel, as a data point becomes farther, its weight decreases exponentially.</p>
-<p>We implemented a Gaussian kernel on the properties in the sample project and its surrounding buffer zone with the 2019 and 2021 Ookla data. We plot the results below. For each tile, denote the distance between the <span class="math inline">\(i\)</span>th tile and the property as <span class="math inline">\(D_i\)</span>. The weight of the <span class="math inline">\(i\)</span>th tile, <span class="math inline">\(W_i\)</span>, is calculated as <span class="math inline">\(W_i = e^{-\frac{D_i}{\phi}}\)</span>. The imputed Ookla speed for a specific property is then calculated as</p>
+<p>A <a
+href="https://en.wikipedia.org/wiki/Kernel_(statistics)">kernel</a>
+function is a function of distance from the point to be estimated and
+the existing data points. For each property whose Ookla test speed needs
+to be estimated, we can use the kernel function to generate weights for
+each Ookla data point, and the estimated value will be the weighted mean
+of all entries in the Ookla dataset. With a Gaussian kernel, as a data
+point becomes farther, its weight decreases exponentially.</p>
+<p>We implemented a Gaussian kernel on the properties in the sample
+project and its surrounding buffer zone with the 2019 and 2021 Ookla
+data. We plot the results below. For each tile, denote the distance
+between the <span class="math inline">\(i\)</span>th tile and the
+property as <span class="math inline">\(D_i\)</span>. The weight of the
+<span class="math inline">\(i\)</span>th tile, <span
+class="math inline">\(W_i\)</span>, is calculated as <span
+class="math inline">\(W_i = e^{-\frac{D_i}{\phi}}\)</span>. The imputed
+Ookla speed for a specific property is then calculated as</p>
 <p><span class="math display">\[
 ImputedSpeed = \frac{\sum W_i * Devices * TileSpeed_i}{\sum W_i}
 \]</span></p>
-<div class="figure">
-<img src="img/ookla_fitted.png" alt="Map of smoothed Ookla results for the sample project" />
-<p class="caption">Map of smoothed Ookla results for the sample project</p>
+<div class="float">
+<img src="img/ookla_fitted.png"
+alt="Map of smoothed Ookla results for the sample project" />
+<div class="figcaption">Map of smoothed Ookla results for the sample
+project</div>
 </div>
 </div>
 <div id="cross-validation" class="section level1">
 <h1>Cross Validation</h1>
-<p>In the Gaussian kernel function, there is a parameter that needs to be tuned, which is <span class="math inline">\(\phi\)</span>. This is analoguous to the <span class="math inline">\(\sigma\)</span> in a normal distribution function. To choose the best value of this parameter for the kernel smoothing function, we ran a 5-fold cross validation on the Ookla dataset in 2021. We randomly divided the dataset into five subsets. Each subset was used as a validation set while the rest four were combined into a training set. We chose the parameter that minimized the average Root Mean Squared Error(RMSE). In the graph above, we fitted the kernel with <span class="math inline">\(\phi\)</span> being 1,000 meters.</p>
+<p>In the Gaussian kernel function, there is a parameter that needs to
+be tuned, which is <span class="math inline">\(\phi\)</span>. This is
+analoguous to the <span class="math inline">\(\sigma\)</span> in a
+normal distribution function. To choose the best value of this parameter
+for the kernel smoothing function, we ran a 5-fold cross validation on
+the Ookla dataset in 2021. We randomly divided the dataset into five
+subsets. Each subset was used as a validation set while the rest four
+were combined into a training set. We chose the parameter that minimized
+the average Root Mean Squared Error(RMSE). In the graph above, we fitted
+the kernel with <span class="math inline">\(\phi\)</span> being 1,000
+meters.</p>
 </div>
 
 <hr />
