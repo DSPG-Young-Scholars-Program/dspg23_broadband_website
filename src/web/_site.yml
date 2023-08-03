@@ -24,7 +24,7 @@ navbar:
         href: ookla_kernel.html
       - text: "Predictive Model"
         href: predictive_model.html
-      - text: "Difference-in-Difference"
+      - text: "Matching"
         href: did.html
       - text: "Findings"
         href: findings.html

@@ -44,7 +44,8 @@ Although we have the subscription speed for the subscribers (i.e., the treatment
 
 The challenge now is choosing the appropriate predictors. Ideally, Ookla speed test data can serve as a strong predictor as the plot below indicates. For the subscribers within the Ookla tiles, the test speed shows a strong positive correlation with the subscription speed.
 
-![Scatter Plot of Subscription Speed against Ookla Test Speed](img/prelim.png)
+![Scatter Plot of Subscription Speed against Ookla Test Speed](img/prelim.png){width=50%}
+
 Yet Ookla speed test data suffers from self selection, which means the lack of speed test data doesn't necessarily tranfer to the lack of internet connection. To address this, we apply a kernel smoothing function to impute the Ookla speed. We then use the imputed Ookla speed test data, FCC data and housing characteristics(number of bedrooms, number of bathrooms, building area, property age, assessed property value) as the explanatory variables. The regression model will then be used to predict the internet speed in the treatment and control group before and after the project completion.
 
 

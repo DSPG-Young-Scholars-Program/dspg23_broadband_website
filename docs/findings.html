@@ -279,7 +279,7 @@ $(document).ready(function () {
       <a href="predictive_model.html">Predictive Model</a>
     </li>
     <li>
-      <a href="did.html">Difference-in-Difference</a>
+      <a href="did.html">Matching</a>
     </li>
     <li>
       <a href="findings.html">Findings</a>
@@ -314,12 +314,11 @@ $(document).ready(function () {
 </div>
 
 
-<div id="difference-in-difference-regression-results" class="section level1">
-<h1>Difference-in-difference Regression Results</h1>
-<div class="figure">
-<img src="img/didreg.png" alt="DID Regression Result" />
-<p class="caption">DID Regression Result</p>
-</div>
+<div id="did-regression" class="section level1">
+<h1>DID Regression</h1>
+<p>The predictive model was fitted on the treatment group and the matching control group before and after the project completion. We then applied difference-in-difference regression on the predicted internet speed to test if the average difference is statistically significant. <span class="math display">\[
+PredictedSpeed_{h,t} = \alpha + \beta treatment_h + \gamma year_t + \delta_{DD}treatment_h * year_t + e_{h,t}
+\]</span> The results indicate that there is a significant increase in internet speed. <img src="img/didreg.png" alt="DID Regression Result" style="width:50.0%" /></p>
 </div>
 
 <hr />
