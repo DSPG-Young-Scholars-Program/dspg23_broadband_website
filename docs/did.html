@@ -13,7 +13,6 @@
 
 <title>Impact of Rural Broadband Development Programs</title>
 
-<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -262,7 +261,7 @@ $(document).ready(function () {
       <a href="geocoding.html">Geocoding</a>
     </li>
     <li>
-      <a href="webscrapping.html">Web-Scrapping</a>
+      <a href="webscrapping.html">Web Scraping</a>
     </li>
   </ul>
 </li>
@@ -309,8 +308,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Impact of Rural Broadband Development
-Programs</h1>
+<h1 class="title toc-ignore">Impact of Rural Broadband Development Programs</h1>
 <h3 class="subtitle">Analysis - DID Sample Matching</h3>
 
 </div>
@@ -318,56 +316,16 @@ Programs</h1>
 
 <div id="rural-buffer-zone" class="section level1">
 <h1>Rural Buffer Zone</h1>
-<p>Moreover, since the project area is located in a rural area, we need
-to ensure that we compare their improvement in internet connectivity to
-communities of similar rurality conditions as well. Thus, while taking
-the project subscribers as our treatment group, we incorporate two
-measures to pick a matching control group.</p>
-<p>To ensure enough similarity between the control group and the
-treatment group, we define a buffer zone as any area within 20 miles of
-the project area. Then we overlay it with the census tract map and
-filtered out the tracts that have a <a
-href="https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes/">Rural-Urban
-Commuting Area (RUCA)</a> code below 7, i.e., we will only keep the
-tracts in the buffer zone that are either a small town or completely
-rural.</p>
-<div class="float">
-<img src="img/bufferzone.png"
-alt="subscribers and buffer zone properties of the sample project" />
-<div class="figcaption">subscribers and buffer zone properties of the
-sample project</div>
+<p>Moreover, since the project area is located in a rural area, we need to ensure that we compare their improvement in internet connectivity to communities of similar rurality conditions as well. Thus, while taking the project subscribers as our treatment group, we incorporate two measures to pick a matching control group.</p>
+<p>To ensure enough similarity between the control group and the treatment group, we define a buffer zone as any area within 20 miles of the project area. Then we overlay it with the census tract map and filtered out the tracts that have a <a href="https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes/">Rural-Urban Commuting Area (RUCA)</a> code below 7, i.e., we will only keep the tracts in the buffer zone that are either a small town or completely rural.</p>
+<p><img src="img/bufferzone.png" alt="Subscribers and buffer zone properties of the sample project" /> # Matching Sample</p>
+<p>As previously explained, we want to ensure the inclusion of property characteristics to avoid biases that can arise from the confounded correlation between household features and access to internet connection. Thus, we use street address matching to link the subscribers with their information in the BlackKnight dataset. To maximize credibility, we dropped all those that we cannot gain property information for.</p>
+<p>Note that in this particular project, a state border lies in the middle of the project area. Though we can match some of the subscribers in the upper state to records in the BlackKnight dataset, we are lacking any information on property characteristics on all these properties in the BlackKnight data set. Thus, they are removed from the treatment group, and one of our next steps is to use web scraping to try looking for these missing entries.</p>
+<div class="figure">
+<img src="img/subscriber_linked_bk.png" alt="Subscribers after linking to property data" />
+<p class="caption">Subscribers after linking to property data</p>
 </div>
-</div>
-<div id="matching-sample" class="section level1">
-<h1>Matching Sample</h1>
-<p>As previously explained, we want to ensure the inclusion of property
-characteristics to avoid biases that can arise from the confounded
-correlation between household features and access to internet
-connection. Thus, we use street address matching to link the subscribers
-with their information in the BlackKnight dataset. To maximize
-credibility, we dropped all those that we cannot gain property
-information for.</p>
-<p>Note that in this particular project, a state border lies in the
-middle of the project area. Though we can match some of the subscribers
-in the upper state to records in the BlackKnight dataset, we are lacking
-any information on property characteristics on all these properties in
-the BlackKnight data set. Thus, they are removed from the treatment
-group, and one of our next steps is to use web scraping to try looking
-for these missing entries.</p>
-<div class="float">
-<img src="img/subscriber_linked_bk.png"
-alt="subscribers after linking to property data" />
-<div class="figcaption">subscribers after linking to property data</div>
-</div>
-<p>Then, the remaining 189 subscribers are used as our treatment group.
-We want to select a control group of the same size and similar
-characteristics from the rural buffer zone. By treating their property
-characteristics as vectors, we can choose the matched counterpart for
-each subscriber in the control group that minimizes the <a
-href="https://en.wikipedia.org/wiki/Mahalanobis_distance">Mahalanobis
-distance</a>. We did so through the R package <a
-href="https://cran.r-project.org/web/packages/Matching/index.html"><em>Matching</em></a>.
-The included household characteristics are</p>
+<p>Then, the remaining 189 subscribers are used as our treatment group. We want to select a control group of the same size and similar characteristics from the rural buffer zone. By treating their property characteristics as vectors, we can choose the matched counterpart for each subscriber in the control group that minimizes the <a href="https://en.wikipedia.org/wiki/Mahalanobis_distance">Mahalanobis distance</a>. We did so through the R package <a href="https://cran.r-project.org/web/packages/Matching/index.html"><em>Matching</em></a>. The included household characteristics are</p>
 <ul>
 <li>number of bedrooms</li>
 <li>number of bathrooms</li>
@@ -375,9 +333,7 @@ The included household characteristics are</p>
 <li>age of building</li>
 <li>assessed value in 2021.</li>
 </ul>
-<p>We plot the matched sample below, together with the fitted Ookla data
-(see Analysis Ookla Kernel tab). <img src="img/ookla_fitted.png"
-alt="subscribers and matched bufferzone properties in the sample project" /></p>
+<p>We plot the matched sample below, together with the fitted Ookla data (see Analysis Ookla Kernel tab). <img src="img/ookla_fitted.png" alt="Subscribers and matched bufferzone properties in the sample project" /></p>
 </div>
 
 <hr />
