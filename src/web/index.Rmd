@@ -13,7 +13,7 @@ subtitle: "Overview of the Project"
 
 The evaluation of applications also prioritizes the economic needs and social vulnerability of the communities. The exact criteria can be viewed on [USDA website](https://www.usda.gov/reconnect/evaluation-criteria).
 
-![Map of approved ReConnect projects. Source: USDA](img/reconnect_map.png)
+![Map of approved ReConnect projects in Contiguous United States. Source: USDA](img/reconnect_map.png)
 
 To date (August 1, 2023), USDA has funded three rounds of ReConnect program, with the fourth round on-going. From FY2019 to 2023, a total of 316 projects are approved and $3.86 billion are invested across the nation to provide affordable broadband connections for rural communities.
 

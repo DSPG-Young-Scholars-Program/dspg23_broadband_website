@@ -10,6 +10,7 @@ Moreover, since the project area is located in a rural area, we need to ensure t
 To ensure enough similarity between the control group and the treatment group, we define a buffer zone as any area within 20 miles of the project area. Then we overlay it with the census tract map and filtered out the tracts that have a [Rural-Urban Commuting Area (RUCA)](https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes/) code below 7, i.e., we will only keep the tracts in the buffer zone that are either a small town or completely rural.
 
 ![Subscribers and buffer zone properties of the sample project](img/bufferzone.png)
+
 # Matching Sample
 
 As previously explained, we want to ensure the inclusion of property characteristics to avoid biases that can arise from the confounded correlation between household features and access to internet connection. Thus, we use street address matching to link the subscribers with their information in the BlackKnight dataset. To maximize credibility, we dropped all those that we cannot gain property information for.
