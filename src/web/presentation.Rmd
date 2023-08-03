@@ -200,7 +200,7 @@ h1, h2, h3, h4, h5 {
 </center>
 <br>
 
-### We implemented a matching algorithm based on between subscriber and buffer-zone properties on number of bedrooms, number of bathrooms, building area, age of building, and 2021 assessed value. Each subscriber is matched to a property with minimized Mahalanobis distance as control group
+### We implemented a matching algorithm based on between subscriber and buffer-zone properties on number of bedrooms, number of bathrooms, building area, age of building, and 2021 assessed value. Each subscriber is matched to a property with the minimum Mahalanobis distance.
 
 <br>
 <br>
@@ -212,6 +212,9 @@ h1, h2, h3, h4, h5 {
 <br>
 
 # Here presents the difference-in-difference analysis results
+$$
+PredictedSpeed_{h,t} = \alpha + \beta treatment_h + \gamma year_t + \delta_{DD}treatment_h * year_t + e_{h,t}
+$$
 <br>
 <center>
 <img src="img/didreg.png" width="500" />

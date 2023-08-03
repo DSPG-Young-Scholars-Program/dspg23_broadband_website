@@ -17,7 +17,8 @@ A [kernel](https://en.wikipedia.org/wiki/Kernel_(statistics)) function is a func
 
 We implemented a Gaussian kernel on the properties in the sample project and its surrounding buffer zone with the 2019 and 2021 Ookla data. We plot the results below.
 For each tile, denote the distance between the $i$th tile and the property as $D_i$. The weight of the $i$th tile, $W_i$, is calculated as $W_i = e^{-\frac{D_i}{\phi}}$.
-The imputed Ookla speed for a specific property is
+The imputed Ookla speed for a specific property is then calculated as
+
 $$
 ImputedSpeed = \frac{\sum W_i * Devices * TileSpeed_i}{\sum W_i}
 $$
