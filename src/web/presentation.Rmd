@@ -94,7 +94,7 @@ h1, h2, h3, h4, h5 {
 | BlackKnight Property Data |  Household level  | Housing characteristics (e.g. number of bedrooms), address, coordinates |  2021 |
 | ReConnect Subscription Data | Household level | Subscription speed, address, coordinates |  2021 | 
 | Ookla Speed Test Data |    620m by 620m tiles     |    Average speed and number of tests within each tile, geometry of tiles     |    2019 - 2022 | 
-| Federal Commission of Communication(FCC) Broadband Data |        Census block level       |   Broadband providers, maximum advertised speed for each provider within each census block     |    2019 - 2021 |
+| Federal Commission of Communication (FCC) Broadband Data |        Census block level       |   Broadband providers, maximum advertised speed for each provider within each census block     |    2019 - 2021 |
 
 <br>
 <br>
@@ -160,6 +160,17 @@ h1, h2, h3, h4, h5 {
 <br>
 <br>
 <br>
+
+# A predictive model is estimated using the 2021 data of the ReConnect subscribers
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 
 # Rural Buffer Zone
@@ -181,8 +192,94 @@ h1, h2, h3, h4, h5 {
 <br>
 <br>
 
+# Matching treatment group and control group
+
+<br>
+<center>
+![](img/ookla_fitted.png)
+</center>
+<br>
+
+### We implemented a matching algorithm based on between subscriber and buffer-zone properties on number of bedrooms, number of bathrooms, building area, age of building, and 2021 assessed value. Each subscriber is matched to a property with minimized Mahalanobis distance as control group
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# Here presents the difference-in-difference analysis results
+<br>
+<center>
+<img src="img/didreg.png" width="500" />
+</center>
+<br>
+
+## The primary Conclusion of our analysis is that we have strong evidence to believe the implementation of the ReConnect project brings a statistically significant improvment to internet connectivity in the example project area.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# Future Steps
+<br>
+<br>
+
+## - Evaluate additional sources to supplement Ookla imputation, such as M-Lab.
+## - Explore solutions to systematic missing of property info in certain states.
+## - Reproduce the analysis as newly completed projects data becomes available.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
+# Thanks for coming, and we are happy to take questions.
 
-# We implemented a matching algorithm based on Mahalanobis distance between subscriber
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
