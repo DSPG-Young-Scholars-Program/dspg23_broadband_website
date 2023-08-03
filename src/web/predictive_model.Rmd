@@ -4,7 +4,7 @@ subtitle: "Analysis - Predictive Model"
 ---
 # Predictive Model
 $$
-SubscriptionSpeed_h = \beta_0 + \beta_1ImputedOokla_h + \beta_2FCCMedAdSpeed_b + \vec\beta_i\vec X_h + e_i
+SubscriptionSpeed = \beta_0 + \beta_1ImputedOokla + \beta_2FCCMedAdSpeed + \vec{\beta_i}\vec{HousingFeatures} + e
 $$
 ![regression](img/regression.png){width=50%}
 

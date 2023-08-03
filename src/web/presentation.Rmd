@@ -73,14 +73,14 @@ h1, h2, h3, h4, h5 {
 <br>
 <br>
 
-# Our methodology consists of three major steps
-
+# Methodology: Difference-in-Difference
+#### Compare the internet speed of subscribers inside the project area (the treatment group) and comparable households around the project area (the control group) before and after project completion
 <br>
 
-## (1) Link internet data to property data using street address and geocoding
-## (2) Create treatment and control group using matching algorithm based upon <br> property location and characteristics
-## (3) Perform regressional analysis to examine effect of ReConnect project
-
+## (1) Challenge in matching treatment and control households
+### Solution: BlackKnight property dataset
+## (2) Challenge in determining internet speed
+### Solution: build a predictive model based on subscription data in 2021
 <br>
 <br>
 <br>
@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5 {
 
 # Geocoding Schema
 
-## Address and geocoded latitude-longitude information area key to link different datasets, but upon exploratory analysis, we found that
+## Coordinates and addresses are key to linking different datasets and predicting internet speed
 
 <center>
 ![](img/bk_geocode_inspection.png)
@@ -162,7 +162,14 @@ h1, h2, h3, h4, h5 {
 <br>
 
 # A predictive model is estimated using the 2021 data of the ReConnect subscribers
-
+$$
+SubscriptionSpeed = \beta_0 + \beta_1ImputedOokla + \beta_2FCCMedAdSpeed + \vec{\beta_i}\vec{HousingFeatures} + e
+$$
+<br>
+<center>
+<img src="img/regression.png" width="500" />
+</center>
+<br>
 
 <br>
 <br>
@@ -221,7 +228,7 @@ $$
 </center>
 <br>
 
-## The primary Conclusion of our analysis is that we have strong evidence to believe the implementation of the ReConnect project brings a statistically significant improvment to internet connectivity in the example project area.
+## We have strong evidence to believe the implementation of the ReConnect project brings a statistically significant improvement to internet connection in the project area.
 
 <br>
 <br>

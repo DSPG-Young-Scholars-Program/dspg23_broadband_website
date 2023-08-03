@@ -374,18 +374,24 @@ h1, h2, h3, h4, h5 {
 </div>
 </div>
 </div>
-<div id="our-methodology-consists-of-three-major-steps" class="section level1">
-<h1>Our methodology consists of three major steps</h1>
+<div id="methodology-difference-in-difference" class="section level1">
+<h1>Methodology: Difference-in-Difference</h1>
+<div id="compare-the-internet-speed-of-subscribers-inside-the-project-area-the-treatment-group-and-comparable-households-around-the-project-area-the-control-group-before-and-after-project-completion" class="section level3">
+<h3>Compare the internet speed of subscribers inside the project area (the treatment group) and comparable households around the project area (the control group) before and after project completion</h3>
 <p><br></p>
-<div id="link-internet-data-to-property-data-using-street-address-and-geocoding" class="section level2">
-<h2>(1) Link internet data to property data using street address and geocoding</h2>
 </div>
-<div id="create-treatment-and-control-group-using-matching-algorithm-based-upon-property-location-and-characteristics" class="section level2">
-<h2>(2) Create treatment and control group using matching algorithm based upon <br> property location and characteristics</h2>
+<div id="challenge-in-matching-treatment-and-control-households" class="section level2">
+<h2>(1) Challenge in matching treatment and control households</h2>
+<div id="solution" class="section level3">
+<h3>Solution:</h3>
 </div>
-<div id="perform-regressional-analysis-to-examine-effect-of-reconnect-project" class="section level2">
-<h2>(3) Perform regressional analysis to examine effect of ReConnect project</h2>
+</div>
+<div id="challenge-in-determining-internet-speed" class="section level2">
+<h2>(2) Challenge in determining internet speed</h2>
+<div id="solution-build-a-predictive-model-based-on" class="section level3">
+<h3>Solution: build a predictive model based on</h3>
 <p><br> <br> <br> <br></p>
+</div>
 </div>
 </div>
 <div id="summary-of-datasets" class="section level1">
@@ -436,8 +442,8 @@ h1, h2, h3, h4, h5 {
 </div>
 <div id="geocoding-schema" class="section level1">
 <h1>Geocoding Schema</h1>
-<div id="address-and-geocoded-latitude-longitude-information-area-key-to-link-different-datasets-but-upon-exploratory-analysis-we-found-that" class="section level2">
-<h2>Address and geocoded latitude-longitude information area key to link different datasets, but upon exploratory analysis, we found that</h2>
+<div id="coordinates-and-addresses-are-key-to-linking-different-datasets-and-predicting-internet-speed" class="section level2">
+<h2>Coordinates and addresses are key to linking different datasets and predicting internet speed</h2>
 <center>
 <img src="img/bk_geocode_inspection.png" />
 </center>
@@ -501,6 +507,13 @@ h1, h2, h3, h4, h5 {
 </div>
 <div id="a-predictive-model-is-estimated-using-the-2021-data-of-the-reconnect-subscribers" class="section level1">
 <h1>A predictive model is estimated using the 2021 data of the ReConnect subscribers</h1>
+<span class="math display">\[
+SubscriptionSpeed = \beta_0 + \beta_1ImputedOokla + \beta_2FCCMedAdSpeed + \vec{\beta_i}\vec{HousingFeatures} + e
+\]</span> <br>
+<center>
+<img src="img/regression.png" width="500" />
+</center>
+<p><br></p>
 <p><br> <br> <br> <br> <br> <br> <br> <br></p>
 </div>
 <div id="rural-buffer-zone" class="section level1">
@@ -529,20 +542,22 @@ h1, h2, h3, h4, h5 {
 <img src="img/ookla_fitted.png" />
 </center>
 <p><br></p>
-<div id="we-implemented-a-matching-algorithm-based-on-between-subscriber-and-buffer-zone-properties-on-number-of-bedrooms-number-of-bathrooms-building-area-age-of-building-and-2021-assessed-value.-each-subscriber-is-matched-to-a-property-with-minimized-mahalanobis-distance-as-control-group" class="section level3">
-<h3>We implemented a matching algorithm based on between subscriber and buffer-zone properties on number of bedrooms, number of bathrooms, building area, age of building, and 2021 assessed value. Each subscriber is matched to a property with minimized Mahalanobis distance as control group</h3>
+<div id="we-implemented-a-matching-algorithm-based-on-between-subscriber-and-buffer-zone-properties-on-number-of-bedrooms-number-of-bathrooms-building-area-age-of-building-and-2021-assessed-value.-each-subscriber-is-matched-to-a-property-with-the-minimum-mahalanobis-distance." class="section level3">
+<h3>We implemented a matching algorithm based on between subscriber and buffer-zone properties on number of bedrooms, number of bathrooms, building area, age of building, and 2021 assessed value. Each subscriber is matched to a property with the minimum Mahalanobis distance.</h3>
 <p><br> <br> <br> <br> <br> <br> <br> <br></p>
 </div>
 </div>
 <div id="here-presents-the-difference-in-difference-analysis-results" class="section level1">
 <h1>Here presents the difference-in-difference analysis results</h1>
-<br>
+<span class="math display">\[
+PredictedSpeed_{h,t} = \alpha + \beta treatment_h + \gamma year_t + \delta_{DD}treatment_h * year_t + e_{h,t}
+\]</span> <br>
 <center>
 <img src="img/didreg.png" width="500" />
 </center>
 <p><br></p>
-<div id="the-primary-conclusion-of-our-analysis-is-that-we-have-strong-evidence-to-believe-the-implementation-of-the-reconnect-project-brings-a-statistically-significant-improvment-to-internet-connectivity-in-the-example-project-area." class="section level2">
-<h2>The primary Conclusion of our analysis is that we have strong evidence to believe the implementation of the ReConnect project brings a statistically significant improvment to internet connectivity in the example project area.</h2>
+<div id="we-have-strong-evidence-to-believe-the-implementation-of-the-reconnect-project-brings-a-statistically-significant-improvement-to-internet-connection-in-the-project-area." class="section level2">
+<h2>We have strong evidence to believe the implementation of the ReConnect project brings a statistically significant improvement to internet connection in the project area.</h2>
 <p><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br></p>
 </div>
 </div>

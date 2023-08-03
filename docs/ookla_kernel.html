@@ -326,7 +326,8 @@ $(document).ready(function () {
 <div id="kernel-smoothing" class="section level1">
 <h1>Kernel Smoothing</h1>
 <p>A <a href="https://en.wikipedia.org/wiki/Kernel_(statistics)">kernel</a> function is a function of distance from the point to be estimated and the existing data points. For each property whose Ookla test speed needs to be estimated, we can use the kernel function to generate weights for each Ookla data point, and the estimated value will be the weighted mean of all entries in the Ookla dataset. With a Gaussian kernel, as a data point becomes farther, its weight decreases exponentially.</p>
-<p>We implemented a Gaussian kernel on the properties in the sample project and its surrounding buffer zone with the 2019 and 2021 Ookla data. We plot the results below. For each tile, denote the distance between the <span class="math inline">\(i\)</span>th tile and the property as <span class="math inline">\(D_i\)</span>. The weight of the <span class="math inline">\(i\)</span>th tile, <span class="math inline">\(W_i\)</span>, is calculated as <span class="math inline">\(W_i = e^{-\frac{D_i}{\phi}}\)</span>. The imputed Ookla speed for a specific property is <span class="math display">\[
+<p>We implemented a Gaussian kernel on the properties in the sample project and its surrounding buffer zone with the 2019 and 2021 Ookla data. We plot the results below. For each tile, denote the distance between the <span class="math inline">\(i\)</span>th tile and the property as <span class="math inline">\(D_i\)</span>. The weight of the <span class="math inline">\(i\)</span>th tile, <span class="math inline">\(W_i\)</span>, is calculated as <span class="math inline">\(W_i = e^{-\frac{D_i}{\phi}}\)</span>. The imputed Ookla speed for a specific property is then calculated as</p>
+<p><span class="math display">\[
 ImputedSpeed = \frac{\sum W_i * Devices * TileSpeed_i}{\sum W_i}
 \]</span></p>
 <div class="figure">
