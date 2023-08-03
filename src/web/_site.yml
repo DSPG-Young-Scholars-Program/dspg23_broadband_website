@@ -20,7 +20,7 @@ navbar:
         href: webscrapping.html
     - text: "Analysis"
       menu:
-      - text: "Ookla Kernel"
+      - text: "Ookla Imputation"
         href: ookla_kernel.html
       - text: "Predictive Model"
         href: predictive_model.html

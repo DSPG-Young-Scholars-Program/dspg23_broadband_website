@@ -4,8 +4,8 @@ subtitle: "Team"
 ---
 
 # DSPG Interns
-* Annie Xie
-* Steve Zhou
+* [Annie Xie](mailto:fumanx@andrew.cmu.edu)
+* [Steve Zhou](mailto:wz8ry@virginia.edu)
 
 # SDAD Mentors
 * Josh Goldstein
